@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    android:orientation="vertical"
+    tools:context=".Activities.EditProfileActivity.EditProfileActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/img_back"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:src="@drawable/arrowback"
+                        app:tint="@color/white" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/sfprodisplaybold"
+                        android:gravity="center"
+                        android:text="Edit Profile"
+                        android:textColor="@color/white"
+                        android:textSize="24sp" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:id="@+id/relative"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/card_stack_view"
+                            android:layout_width="wrap_content"
+                            android:layout_height="160dp"
+                            android:layout_centerHorizontal="true"
+                            app:cardBackgroundColor="@android:color/transparent"
+                            app:cardCornerRadius="100dp">
+
+                            <RelativeLayout
+                                android:layout_width="160dp"
+                                android:layout_height="match_parent">
+
+                                <ImageView
+                                    android:id="@+id/img_profile"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_centerVertical="true"
+                                    android:scaleType="centerCrop"
+                                    android:src="@drawable/imggirl" />
+
+                            </RelativeLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/img_selectimage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center|right"
+                        android:layout_marginLeft="-12dp"
+                        android:src="@drawable/camera"
+                        app:tint="@color/white" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginRight="20dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Name"
+                        android:textColor="#DADADA"
+                        android:textSize="20sp" />
+
+                    <EditText
+                        android:id="@+id/et_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:background="@drawable/roundcorner_whitestroke"
+                        android:drawablePadding="20dp"
+                        android:inputType="textEmailAddress"
+                        android:padding="15dp"
+                        android:singleLine="true"
+                        android:text="Adom Safi"
+                        android:textColor="@color/white"
+                        android:textColorHint="#DED7D7"
+                        android:textSize="14sp" />
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="30dp"
+                        android:text="Email"
+                        android:textColor="#DADADA"
+                        android:textSize="20sp" />
+
+                    <EditText
+                        android:id="@+id/et_mail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:background="@drawable/roundcorner_whitestroke"
+                        android:enabled="false"
+                        android:inputType="textEmailAddress"
+                        android:padding="15dp"
+                        android:singleLine="true"
+                        android:text="Adom@gmail.com"
+                        android:textColor="@color/white"
+                        android:textColorHint="#DED7D7"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:text="Contact no."
+                        android:textColor="#DADADA"
+                        android:textSize="20sp" />
+
+                    <EditText
+                        android:id="@+id/et_contact"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:background="@drawable/roundcorner_whitestroke"
+                        android:inputType="textEmailAddress"
+                        android:maxLength="14"
+                        android:padding="15dp"
+                        android:singleLine="true"
+                        android:text="+619671097299"
+                        android:textColor="@color/white"
+                        android:textColorHint="#DED7D7"
+                        android:textSize="14sp" />
+
+                    <Button
+                        android:id="@+id/btn_savenow"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="60dp"
+                        android:background="@drawable/buttonbackground"
+                        android:padding="15dp"
+                        android:text="Save Now"
+                        android:textColor="@color/black"
+                        android:textSize="16sp" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="../../../../../../layout/custom_preview.xml" value="0.28177083333333336" />
+        <entry key="../../../../../../root/Android/Sdk/platforms/android-32/data/res/layout/simple_spinner_item.xml" value="0.26666666666666666" />
+        <entry key="../../../../root/Android/Sdk/platforms/android-32/data/res/layout/simple_spinner_dropdown_item.xml" value="0.13802083333333334" />
+        <entry key="app/src/main/res/drawable/appgoldenbackground.xml" value="0.2784615384615385" />
+        <entry key="app/src/main/res/drawable/arrowforward.xml" value="0.2828125" />
+        <entry key="app/src/main/res/drawable/bgspinner.xml" value="0.13703703703703704" />
+        <entry key="app/src/main/res/drawable/bgspinner2.xml" value="0.13703703703703704" />
+        <entry key="app/src/main/res/drawable/bottomsheetdialog.xml" value="0.15416666666666667" />
+        <entry key="app/src/main/res/drawable/buttonbackground.xml" value="0.2828125" />
+        <entry key="app/src/main/res/drawable/card_roundcorner.xml" value="0.2828125" />
+        <entry key="app/src/main/res/drawable/cornor_chat.xml" value="0.2828125" />
+        <entry key="app/src/main/res/drawable/edittext_roundecorner.xml" value="0.2828125" />
+        <entry key="app/src/main/res/drawable/iconcolor.xml" value="0.2828125" />
+        <entry key="app/src/main/res/drawable/oval.xml" value="0.2828125" />
+        <entry key="app/src/main/res/drawable/roundcorner.xml" value="0.2828125" />
+        <entry key="app/src/main/res/drawable/roundcorner2.xml" value="0.2784615384615385" />
+        <entry key="app/src/main/res/drawable/roundcorner3.xml" value="0.2784615384615385" />
+        <entry key="app/src/main/res/drawable/roundcorner_whitestroke.xml" value="0.2784615384615385" />
+        <entry key="app/src/main/res/drawable/smalllroundcorner.xml" value="0.1075" />
+        <entry key="app/src/main/res/drawable/spinner_background.xml" value="0.15416666666666667" />
+        <entry key="app/src/main/res/drawable/spins.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/stroke_bgspinner.xml" value="0.2784615384615385" />
+        <entry key="app/src/main/res/drawable/stroke_roundcorner.xml" value="0.2784615384615385" />
+        <entry key="app/src/main/res/drawable/stroke_roundcornerstrokes.xml" value="0.2784615384615385" />
+        <entry key="app/src/main/res/font/sf.xml" value="0.25092592592592594" />
+        <entry key="app/src/main/res/layout/activity_all_jobs_detail.xml" value="0.26666666666666666" />
+        <entry key="app/src/main/res/layout/activity_applicants_detail.xml" value="0.2515625" />
+        <entry key="app/src/main/res/layout/activity_apply_job.xml" value="0.26666666666666666" />
+        <entry key="app/src/main/res/layout/activity_change_password.xml" value="0.18" />
+        <entry key="app/src/main/res/layout/activity_chat_detail.xml" value="0.24547101449275363" />
+        <entry key="app/src/main/res/layout/activity_chat_message.xml" value="0.2671875" />
+        <entry key="app/src/main/res/layout/activity_company_details.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/activity_edit_profile.xml" value="0.16" />
+        <entry key="app/src/main/res/layout/activity_employer_welcome.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_home.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_job_deatail.xml" value="0.26666666666666666" />
+        <entry key="app/src/main/res/layout/activity_job_description.xml" value="0.26666666666666666" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.25407608695652173" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.17753623188405798" />
+        <entry key="app/src/main/res/layout/activity_my_applications.xml" value="0.26666666666666666" />
+        <entry key="app/src/main/res/layout/activity_my_jobs.xml" value="0.1625" />
+        <entry key="app/src/main/res/layout/activity_myapplicants.xml" value="0.26666666666666666" />
+        <entry key="app/src/main/res/layout/activity_search_result.xml" value="0.1537037037037037" />
+        <entry key="app/src/main/res/layout/activity_splash_skip.xml" value="0.17753623188405798" />
+        <entry key="app/src/main/res/layout/activity_welcome.xml" value="0.25407608695652173" />
+        <entry key="app/src/main/res/layout/bottom_sheet_dialog.xml" value="0.18" />
+        <entry key="app/src/main/res/layout/chatlistitem.xml" value="0.24547101449275363" />
+        <entry key="app/src/main/res/layout/customspinneritem.xml" value="0.2671875" />
+        <entry key="app/src/main/res/layout/favouriteslist.xml" value="0.26666666666666666" />
+        <entry key="app/src/main/res/layout/filteritemresult.xml" value="0.2671875" />
+        <entry key="app/src/main/res/layout/fragment_chat.xml" value="0.24547101449275363" />
+        <entry key="app/src/main/res/layout/fragment_edit_profile.xml" value="0.24547101449275363" />
+        <entry key="app/src/main/res/layout/fragment_employer_home.xml" value="0.14" />
+        <entry key="app/src/main/res/layout/fragment_favourite.xml" value="0.11822916666666666" />
+        <entry key="app/src/main/res/layout/fragment_forgot_password.xml" value="0.2" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_login.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/fragment_login_fragments.xml" value="0.25407608695652173" />
+        <entry key="app/src/main/res/layout/fragment_otp.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_reset_password.xml" value="0.2" />
+        <entry key="app/src/main/res/layout/fragment_setting.xml" value="0.26666666666666666" />
+        <entry key="app/src/main/res/layout/fragment_sign_up.xml" value="0.2" />
+        <entry key="app/src/main/res/layout/item_action.xml" value="0.26666666666666666" />
+        <entry key="app/src/main/res/layout/item_message.xml" value="0.26666666666666666" />
+        <entry key="app/src/main/res/layout/itemmessageleft.xml" value="0.26666666666666666" />
+        <entry key="app/src/main/res/layout/jobtypeitem.xml" value="0.26666666666666666" />
+        <entry key="app/src/main/res/layout/logoutdialog.xml" value="0.26666666666666666" />
+        <entry key="app/src/main/res/layout/mostrecentjobsitem.xml" value="0.26666666666666666" />
+        <entry key="app/src/main/res/layout/mostrelevantjobsitem.xml" value="0.26666666666666666" />
+        <entry key="app/src/main/res/layout/myapplicantsitem.xml" value="0.26666666666666666" />
+        <entry key="app/src/main/res/layout/myapplicationsitem.xml" value="0.26666666666666666" />
+        <entry key="app/src/main/res/layout/myjobslist.xml" value="0.2" />
+        <entry key="app/src/main/res/layout/popularjobsitem.xml" value="0.26666666666666666" />
+        <entry key="app/src/main/res/layout/recentpostitem.xml" value="0.26666666666666666" />
+        <entry key="app/src/main/res/layout/searchitemresult.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/simple_spinner_item.xml" value="0.26666666666666666" />
+        <entry key="app/src/main/res/layout/spinnerbackground.xml" value="0.26666666666666666" />
+        <entry key="app/src/main/res/menu/bottomnavmenu.xml" value="0.26666666666666666" />
+        <entry key="app/src/main/res/menu/menu.xml" value="0.26666666666666666" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

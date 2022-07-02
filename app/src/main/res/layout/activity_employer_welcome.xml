@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/black"
+    android:layout_gravity="center"
+    android:gravity="center"
+    tools:context=".Activities.EmployerWelcomeActivity.EmployerWelcomeActivity">
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Let's make your\n next great hire"
+    android:textSize="30sp"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:fontFamily="@font/sfprodisplaybold"
+    android:textColor="@color/white"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:src="@drawable/welcomeman"
+        android:layout_marginTop="30dp"/>
+
+    <TextView
+        android:id="@+id/tv_postjob"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Post a Job"
+        android:padding="15dp"
+        android:textSize="16sp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:background="@drawable/buttonbackground"
+        android:textColor="@color/black"
+        android:fontFamily="@font/sfprodisplaybold"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="40dp"/>
+
+</LinearLayout>
