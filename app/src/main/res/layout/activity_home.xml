@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -12,15 +12,56 @@
         android:id="@+id/home_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginBottom="58dp"
         android:layout_weight="1" />
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomnav"
+    <com.google.android.material.bottomappbar.BottomAppBar
+        android:id="@+id/bottomAppBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
         android:background="@color/appgoldencolor"
-        app:itemIconTint="@drawable/iconcolor"
-        app:labelVisibilityMode="unlabeled"
-        app:menu="@menu/bottomnavmenu" />
+        android:theme="@style/AppThemeMaterial"
+        app:backgroundTint="@color/appgoldencolor"
+        app:fabCradleMargin="5dp"
+        app:fabCradleRoundedCornerRadius="10dp"
+        app:fabCradleVerticalOffset="10dp"
+        tools:ignore="BottomAppBar">
 
-</LinearLayout>
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottomnav"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            app:itemIconTint="@drawable/iconcolor"
+            app:labelVisibilityMode="unlabeled"
+            app:menu="@menu/bottomnavmenu" />
+
+    </com.google.android.material.bottomappbar.BottomAppBar>
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+
+        android:id="@+id/fab"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:elevation="8dp"
+        android:src="@drawable/chatbabbu"
+        app:fabSize="normal"
+        app:maxImageSize="35dp"
+        app:backgroundTint="@color/appgoldencolor"
+        app:elevation="8dp"
+        app:layout_anchor="@id/bottomAppBar"
+        app:layout_anchorGravity="center"
+        app:rippleColor="@android:color/transparent" />
+
+<!--    <com.google.android.material.bottomnavigation.BottomNavigationView-->
+<!--        android:id="@+id/bottomnav"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:background="@color/appgoldencolor"-->
+<!--        app:itemIconTint="@drawable/iconcolor"-->
+<!--        app:labelVisibilityMode="unlabeled"-->
+<!--        app:menu="@menu/bottomnavmenu" />-->
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

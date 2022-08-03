@@ -12,12 +12,13 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.app.humanresource.Activities.ChatDetailActivity.ChatDetailActivity
 import com.app.humanresource.Activities.ChatMessageActivity.ChatMessageActivity
+import com.app.humanresource.Models.GetAllUsersModel.Message
 import com.app.humanresource.StaticModels.ChatListModelClass
 
 
 class ChatListRecyclerAdapter(
     private val activity: FragmentActivity?,
-     private  val chatList: ArrayList<ChatListModelClass>
+    private val chatList: List<Message>
 ):
     RecyclerView.Adapter<ChatListRecyclerAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ChatListRecyclerAdapter.ViewHolder {
@@ -26,13 +27,14 @@ class ChatListRecyclerAdapter(
     }
 
     override fun onBindViewHolder(holder: ChatListRecyclerAdapter.ViewHolder, position: Int) {
-        var mList: ChatListModelClass = chatList.get(position)
-        holder.userimage.setImageResource(mList.imgae!!)
-        holder.tv_name.text =mList.name
-        holder.tv_message.text = mList.message
-        holder.tv_time.text = mList.time
+        holder.tv_name.text = chatList.get(position).userName
+//        holder.tv_time.text = chatList.get(position).userName
+//        holder.tv_name.text =mList.name
+//        holder.tv_message.text = mList.message
+//        holder.tv_time.text = mList.time
         holder.tv_name.setOnClickListener{
             var intent = Intent(activity,ChatDetailActivity::class.java)
+            intent.putExtra("username",chatList.get(position).userName)
             activity?.startActivity(intent)
         }
 
@@ -52,7 +54,7 @@ class ChatListRecyclerAdapter(
     }
 
     fun removeItem(position: Int) {
-        chatList.removeAt(position)
+//        chatList.removeAt(position)
         notifyItemRemoved(position)
 
     }
@@ -62,7 +64,7 @@ class ChatListRecyclerAdapter(
 //        notifyItemInserted(position)
 //    }
 
-    fun getData(): ArrayList<ChatListModelClass> {
-        return chatList
-    }
+//    fun getData(): ArrayList<ChatListModelClass> {
+//        return chatList
+//    }
 }

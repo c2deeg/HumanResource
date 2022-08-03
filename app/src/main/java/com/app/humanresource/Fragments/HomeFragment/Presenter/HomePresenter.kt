@@ -298,7 +298,6 @@ class HomePresenter(
                 ?.searchPI(searchtitle, object : SearchHandler {
                     override fun onSuccess(searchExamples: SearchExamples?) {
                         if (searchExamples?.isSuccess == true) {
-                            Toast.makeText(activity,"Sucess",Toast.LENGTH_SHORT).show()
 
                         }
                     }

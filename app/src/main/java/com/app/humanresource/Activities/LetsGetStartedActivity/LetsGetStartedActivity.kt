@@ -31,4 +31,9 @@ class LetsGetStartedActivity : AppCompatActivity(), View.OnClickListener {
             startActivity(intent)
         }
     }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        finishAffinity()
+    }
 }

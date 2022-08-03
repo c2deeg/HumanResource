@@ -95,6 +95,17 @@ public class Utils {
                 .addToBackStack(null).commitAllowingStateLoss()
         }
 
+        fun homeActivitychangeFragment(context: Context, fragment: Fragment?) {
+            val fragmentManager = (context as FragmentActivity).supportFragmentManager
+            fragmentManager.beginTransaction().replace(android.R.id.content, fragment!!)
+                .addToBackStack(null).commitAllowingStateLoss()
+        }
+        fun homeActivitychangeFragment2(context: Context, fragment: Fragment?) {
+            val fragmentManager = (context as FragmentActivity).supportFragmentManager
+            fragmentManager.beginTransaction().replace(R.id.home_container, fragment!!)
+                .addToBackStack(null).commitAllowingStateLoss()
+        }
+
 
         fun showDialogMethod(activity: Activity?, supportFragmentManager: FragmentManager?) {
             progressDialog = ProgressDialog(activity)

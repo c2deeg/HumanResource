@@ -30,22 +30,23 @@
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:gravity="end">
-<androidx.cardview.widget.CardView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_gravity="end"
-    app:cardCornerRadius="100dp">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                app:cardCornerRadius="100dp">
 
 
-    <ImageView
-        android:id="@+id/_img_userimage"
-        android:layout_width="49dp"
-        android:layout_height="49dp"
-        android:layout_gravity="end"
-        android:scaleType="centerCrop"
-        android:src="@drawable/imggirl" />
+                <ImageView
+                    android:id="@+id/_img_userimage"
+                    android:layout_width="49dp"
+                    android:layout_height="49dp"
+                    android:layout_gravity="end"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/imggirl" />
 
-</androidx.cardview.widget.CardView>
+            </androidx.cardview.widget.CardView>
 
         </LinearLayout>
 
@@ -110,298 +111,184 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scrollbars="none">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:orientation="vertical">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="0dp"
-            android:fontFamily="@font/sfprodisplaybold"
-            android:text="Job Category"
-            android:textColor="@color/white"
-            android:textSize="24sp" />
-
-
-        <EditText
-            android:id="@+id/et_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/roundcorner"
-            android:drawablePadding="20dp"
-            android:hint="Tittle"
-            android:text="sASAsA"
-            android:inputType="textEmailAddress"
-            android:padding="15dp"
-            android:singleLine="true"
-            android:textColor="@color/white"
-            android:textColorHint="#DED7D7"
-            android:textSize="14sp" />
-
-        <EditText
-            android:id="@+id/et_category"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/roundcorner"
-            android:drawablePadding="20dp"
-            android:hint="Category"
-            android:inputType="textEmailAddress"
-            android:text="sASAsA"
-            android:padding="15dp"
-            android:singleLine="true"
-            android:textColor="@color/white"
-            android:textColorHint="@color/appgoldencolor"
-            android:textSize="14sp" />
-
-        <EditText
-            android:id="@+id/et_homeowner"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/roundcorner"
-            android:drawablePadding="20dp"
-            android:hint="Home Owners"
-            android:inputType="textEmailAddress"
-            android:text="sASAsA"
-            android:padding="15dp"
-            android:singleLine="true"
-            android:textColor="@color/white"
-            android:textColorHint="@color/white"
-            android:textSize="14sp" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:fontFamily="@font/sfprodisplaybold"
-            android:text="Location"
-            android:textColor="@color/white"
-            android:textSize="24sp" />
-
-        <EditText
-            android:id="@+id/et_citylocation"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="California"
-            android:padding="15dp"
-            android:singleLine="true"
-            android:textColor="@color/white"
-            android:text="sASAsA"
-            android:background="@drawable/roundcorner"
-            android:textColorHint="@color/white"
-            android:textSize="14sp"
-            android:layout_marginTop="5dp"/>
-
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:fontFamily="@font/sfprodisplaybold"
-            android:text="Price"
-            android:textColor="@color/white"
-            android:textSize="24sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:orientation="horizontal"
-            android:weightSum="1">
+            android:orientation="vertical">
 
-            <EditText
-                android:id="@+id/et_pricefrom"
-                android:layout_width="0dp"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.3"
-                android:background="@drawable/roundcorner"
-                android:hint="$200"
-                android:text="20"
-                android:singleLine="true"
-                android:inputType="number"
-                android:padding="10dp"
-                android:textColor="@color/white"
-                android:textColorHint="@color/lightgray" />
+                android:layout_margin="20dp"
+                android:orientation="vertical">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:text="to"
-                android:textColor="@color/white"
-                android:textSize="18sp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="0dp"
+                    android:fontFamily="@font/sfprodisplaybold"
+                    android:text="Job Category"
+                    android:textColor="@color/white"
+                    android:textSize="24sp" />
 
-            <EditText
-                android:id="@+id/et_priceto"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_weight="0.3"
-                android:background="@drawable/roundcorner"
-                android:hint="$1000"
-                android:text="200"
-                android:padding="10dp"
-                android:singleLine="true"
-                android:inputType="number"
-                android:textColor="@color/white"
-                android:textColorHint="@color/lightgray" />
+
+                <EditText
+                    android:id="@+id/et_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/roundcorner"
+                    android:drawablePadding="20dp"
+                    android:hint="Tittle"
+                    android:inputType="textEmailAddress"
+                    android:padding="15dp"
+                    android:singleLine="true"
+                    android:textColor="@color/white"
+                    android:textColorHint="#DED7D7"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/et_category"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/roundcorner"
+                    android:drawablePadding="20dp"
+                    android:hint="Category"
+                    android:inputType="textEmailAddress"
+                    android:padding="15dp"
+                    android:singleLine="true"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/appgoldencolor"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/et_homeowner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/roundcorner"
+                    android:drawablePadding="20dp"
+                    android:hint="Home Owners"
+                    android:inputType="textEmailAddress"
+                    android:padding="15dp"
+                    android:singleLine="true"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/sfprodisplaybold"
+                    android:text="Location"
+                    android:textColor="@color/white"
+                    android:textSize="24sp" />
+
+                <EditText
+                    android:id="@+id/et_citylocation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/roundcorner"
+                    android:hint="California"
+                    android:padding="15dp"
+                    android:singleLine="true"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white"
+                    android:textSize="14sp" />
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/sfprodisplaybold"
+                    android:text="Price"
+                    android:textColor="@color/white"
+                    android:textSize="24sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal"
+                    android:weightSum="1">
+
+                    <EditText
+                        android:id="@+id/et_pricefrom"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.3"
+                        android:background="@drawable/roundcorner"
+                        android:hint="$200"
+                        android:inputType="number"
+                        android:padding="10dp"
+                        android:singleLine="true"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/lightgray" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:text="to"
+                        android:textColor="@color/white"
+                        android:textSize="18sp" />
+
+                    <EditText
+                        android:id="@+id/et_priceto"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_weight="0.3"
+                        android:background="@drawable/roundcorner"
+                        android:hint="$1000"
+                        android:inputType="number"
+                        android:padding="10dp"
+                        android:singleLine="true"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/lightgray" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/sfprodisplaybold"
+                    android:text="Number of Workers"
+                    android:textColor="@color/white"
+                    android:textSize="24sp" />
+
+                <Spinner
+                    android:id="@+id/numof_workersspinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/bgspinner"
+                    android:dropDownVerticalOffset="35dp"
+                    android:spinnerMode="dropdown" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/sfprodisplaybold"
+                    android:text="Job Type"
+                    android:textColor="@color/white"
+                    android:textSize="24sp" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/jobtype_recycerview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+
         </LinearLayout>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Number of Workers"
-            android:textSize="24sp"
-            android:textColor="@color/white"
-            android:fontFamily="@font/sfprodisplaybold"
-            android:layout_marginTop="20dp"/>
-<!--        <EditText-->
-<!--            android:id="@+id/et_numofworkers"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:hint="20"-->
-<!--            android:padding="15dp"-->
-<!--            android:singleLine="true"-->
-<!--            android:text="260"-->
-<!--            android:inputType="number"-->
-<!--            android:textColor="@color/white"-->
-<!--            android:visibility="gone"-->
-<!--            android:background="@drawable/roundcorner"-->
-<!--            android:textColorHint="@color/white"-->
-<!--            android:textSize="14sp"-->
-<!--            android:layout_marginTop="5dp"/>-->
-        <Spinner
-            android:id="@+id/numof_workersspinner"
-            android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:background="@drawable/bgspinner"
-            android:dropDownVerticalOffset="35dp"
-            android:spinnerMode="dropdown"
-            android:layout_marginTop="5dp"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Job Type"
-            android:textSize="24sp"
-            android:textColor="@color/white"
-            android:fontFamily="@font/sfprodisplaybold"
-            android:layout_marginTop="20dp"/>
-<!--        <LinearLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:orientation="horizontal"-->
-<!--            android:layout_marginTop="15dp"-->
-<!--            android:layout_gravity="center"-->
-<!--            android:gravity="center"-->
-<!--            android:weightSum="1">-->
-<!--            <TextView-->
-<!--                android:id="@+id/tv_fulltime"-->
-<!--                android:layout_width="0dp"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_weight="0.3"-->
-<!--                android:text="Full Time"-->
-<!--                android:layout_gravity="center"-->
-<!--                android:gravity="center"-->
-<!--                android:textSize="12sp"-->
-<!--                android:padding="10dp"-->
-<!--                android:layout_marginRight="10dp"-->
-<!--                android:layout_marginLeft="-10dp"-->
-<!--                android:background="@drawable/stroke_roundcorner"/>-->
-<!--            <TextView-->
-<!--                android:id="@+id/tv_parttime"-->
-<!--                android:layout_width="0dp"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_weight="0.3"-->
-<!--                android:text="Part Time"-->
-<!--                android:layout_gravity="center"-->
-<!--                android:gravity="center"-->
-<!--                android:textSize="12sp"-->
-<!--                android:padding="10dp"-->
-<!--                android:layout_marginLeft="10dp"-->
-<!--                android:background="@drawable/stroke_roundcorner"/>-->
-<!--            <TextView-->
-<!--                android:id="@+id/tv_contact"-->
-<!--                android:layout_width="0dp"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_weight="0.3"-->
-<!--                android:text="Contract"-->
-<!--                android:layout_gravity="center"-->
-<!--                android:gravity="center"-->
-<!--                android:textSize="12sp"-->
-<!--                android:padding="10dp"-->
-<!--                android:layout_marginLeft="10dp"-->
-<!--                android:background="@drawable/stroke_roundcorner"/>-->
-
-<!--        </LinearLayout>-->
-
-
-<!--        <LinearLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:orientation="horizontal"-->
-<!--            android:layout_marginTop="5dp"-->
-<!--            android:layout_gravity="center"-->
-<!--            android:gravity="center"-->
-<!--            android:weightSum="1">-->
-<!--            <TextView-->
-<!--                android:id="@+id/tv_remote"-->
-<!--                android:layout_width="0dp"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_weight="0.3"-->
-<!--                android:text="Remote"-->
-<!--                android:layout_gravity="center"-->
-<!--                android:gravity="center"-->
-<!--                android:textSize="12sp"-->
-<!--                android:padding="10dp"-->
-<!--                android:layout_marginRight="10dp"-->
-<!--                android:background="@drawable/stroke_roundcorner"/>-->
-<!--            <TextView-->
-<!--                android:id="@+id/tv_freelance"-->
-<!--                android:layout_width="0dp"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_weight="0.3"-->
-<!--                android:text="Freelancer"-->
-<!--                android:layout_gravity="center"-->
-<!--                android:gravity="center"-->
-<!--                android:textSize="12sp"-->
-<!--                android:padding="10dp"-->
-<!--                android:layout_marginLeft="10dp"-->
-<!--                android:background="@drawable/stroke_roundcorner"/>-->
-<!--            <TextView-->
-<!--                android:id="@+id/tv_showalltypes"-->
-<!--                android:layout_width="0dp"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_weight="0.4"-->
-<!--                android:text="Show all Types"-->
-<!--                android:layout_gravity="center"-->
-<!--                android:gravity="center"-->
-<!--                android:textSize="12sp"-->
-<!--                android:padding="10dp"-->
-<!--                android:layout_margin="10dp"-->
-<!--                android:background="@drawable/stroke_roundcorner"/>-->
-<!--        </LinearLayout>-->
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/jobtype_recycerview"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-
-
-
-    </LinearLayout>
-
-
-</LinearLayout>
     </ScrollView>
 
 </LinearLayout>

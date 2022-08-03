@@ -8,6 +8,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.app.humanresource.Activities.ApplicantsDetailActivity.ApplicantsDetailActivity
+import com.app.humanresource.Activities.ApplicantsDetailActivity.View.ApplicantsDetailView
 import com.app.humanresource.Activities.MyapplicantsActivity.MyapplicantsActivity
 import com.app.humanresource.Models.GetJobApplicants.GetJobApplicantsData
 import com.app.humanresource.R
@@ -17,6 +18,7 @@ class ApplicantsRecyclerAdapter(
     private val data: List<GetJobApplicantsData>
 ) :
     RecyclerView.Adapter<ApplicantsRecyclerAdapter.ViewHolder>() {
+    var applicationsView:ApplicantsDetailView?=null
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -28,11 +30,14 @@ class ApplicantsRecyclerAdapter(
 
     override fun onBindViewHolder(holder: ApplicantsRecyclerAdapter.ViewHolder, position: Int) {
         holder.tv_applicantname.text = data.get(position).firstName + "" + data.get(position).lastName
-        holder.tv_date.text = data?.get(position)?.createdOn
+        holder.tv_date.text = data?.get(position)?.createdOn?.dropLast(14)
         holder.tv_phonenumber.text = data?.get(position)?.applyBy?.phoneNumber
+
 
         holder.linear.setOnClickListener {
             var intent = Intent(activity,ApplicantsDetailActivity::class.java)
+            intent.putExtra("jobid",data.get(position).id)
+            intent.putExtra("userid",data.get(position).applyBy._id)
             activity.startActivity(intent)
         }
     }

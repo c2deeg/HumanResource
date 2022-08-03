@@ -21,7 +21,7 @@ import com.app.humanresource.Utils.GenericTextWatcher;
 import com.app.humanresource.Utils.Utils;
 
 //View.OnClickListener,
-public class OtpFragment extends Fragment implements View.OnClickListener,  OtpView {
+public class OtpFragment extends Fragment implements View.OnClickListener, OtpView {
 
     private Activity activity;
     private View view;
@@ -31,6 +31,7 @@ public class OtpFragment extends Fragment implements View.OnClickListener,  OtpV
     private OtpPresenter otpPresenter;
     private String email;
     private TextView tv_email;
+    private TextView tv_resend;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -40,11 +41,9 @@ public class OtpFragment extends Fragment implements View.OnClickListener,  OtpV
         activity = getActivity();
         init();
         listeners();
-        otpPresenter = new OtpPresenter(activity,this);
+        otpPresenter = new OtpPresenter(activity, this);
         email = requireArguments().getString("email");
         tv_email.setText(email);
-
-
         return view;
     }
 
@@ -57,6 +56,7 @@ public class OtpFragment extends Fragment implements View.OnClickListener,  OtpV
         otpET4 = view.findViewById(R.id.otpET4);
         btn_submit = view.findViewById(R.id.btn_submit);
         tv_email = view.findViewById(R.id.tv_email);
+        tv_resend = view.findViewById(R.id.tv_resend);
 
         EditText[] edit = {otpET1, otpET2, otpET3, otpET4};
 
@@ -68,20 +68,17 @@ public class OtpFragment extends Fragment implements View.OnClickListener,  OtpV
 
     private void listeners() {
         btn_submit.setOnClickListener(this);
+        tv_resend.setOnClickListener(this);
     }
 
 
     @Override
     public void onClick(View view) {
-        if (view==btn_submit){
-            String otp = otpET1.getText().toString()+otpET2.getText().toString()+otpET3.getText().toString()+otpET4.getText().toString();
+        if (view == btn_submit) {
+            String otp = otpET1.getText().toString() + otpET2.getText().toString() + otpET3.getText().toString() + otpET4.getText().toString();
             otpPresenter.otpMethod(otp);
-//            Fragment fragment = new ResetPasswordFragment();
-//            FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-//            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-//            fragmentTransaction.replace(R.id.login_container, fragment);
-//            fragmentTransaction.addToBackStack(null);
-//            fragmentTransaction.commit();
+        } else if (view == tv_resend) {
+            otpPresenter.forgotpasswordMethod(email);
         }
 
     }
@@ -89,13 +86,13 @@ public class OtpFragment extends Fragment implements View.OnClickListener,  OtpV
 
     @Override
     public void showMessage(@Nullable Activity activity, @Nullable String msg) {
-        Utils.Companion.showMessage(activity,msg);
+        Utils.Companion.showMessage(activity, msg);
 
     }
 
     @Override
     public void showDialog(@Nullable Activity activity) {
-        Utils.Companion.showDialogMethod(activity,requireActivity().getFragmentManager());
+        Utils.Companion.showDialogMethod(activity, requireActivity().getFragmentManager());
 
     }
 

@@ -27,26 +27,24 @@ class EmployerHomePresenter(
                 ?.createCategoryMethod(category, object : CreateCategoryHandler {
                     override fun onSuccess(createCategoryExample: CreateCategoryExample?) {
                         if (createCategoryExample?.isSuccess == true) {
-                            employerHomeView.showMessage(activity, createCategoryExample?.message)
+//                            employerHomeView.showMessage(activity, createCategoryExample?.message)
                             CSPreferences.putString(
                                 activity,
                                 Utils.CATEGORYID,
                                 createCategoryExample.data.id
                             )
                         } else {
-                            employerHomeView.showMessage(activity, createCategoryExample?.message)
+//                            employerHomeView.showMessage(activity, createCategoryExample?.message)
                         }
                     }
                     override fun onError(message: String?) {
-                        employerHomeView.showMessage(activity, message)
+//                        employerHomeView.showMessage(activity, message)
                     }
                 }
                 )
-
-
     }
 
-    //getprofileimage_______________________________________________________________________________
+    //getprofileimage__________________________________________________________________________________________________________________________
     fun getCurrentUser() {
         var id: String? = null
         var token: String? = null

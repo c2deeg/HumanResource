@@ -98,12 +98,11 @@
             android:background="@drawable/stroke_roundcorner"
             android:drawablePadding="20dp"
             android:hint="Google"
-            android:text="Google"
             android:inputType="textEmailAddress"
             android:padding="15dp"
             android:singleLine="true"
             android:textColor="@color/white"
-            android:textColorHint="#DED7D7"
+            android:textColorHint="@color/hintcolor2"
             android:textSize="14sp" />
 
         <TextView
@@ -144,9 +143,9 @@
                 android:layout_gravity="center"
                 android:background="@android:color/transparent"
                 android:hint="99999999922"
-                android:text="99999999922"
                 android:inputType="number"
                 android:maxLength="15"
+                android:textColorHint="@color/hintcolor2"
                 android:singleLine="true"
                 android:textColor="@color/white" />
         </LinearLayout>
@@ -191,10 +190,9 @@
                 android:background="@android:color/transparent"
                 android:drawablePadding="20dp"
                 android:hint="Mohali dist 134422 plot no. 1543"
-                android:text="Google"
                 android:padding="15dp"
                 android:textColor="@color/white"
-                android:textColorHint="#DED7D7"
+                android:textColorHint="@color/hintcolor2"
                 android:textSize="14sp" />
 
         </LinearLayout>
@@ -223,9 +221,7 @@
                 android:hint="Good  Communication Skills"
                 android:padding="15dp"
                 android:textColor="@color/white"
-                android:text="Google"
-
-                android:textColorHint="#DED7D7"
+                android:textColorHint="@color/hintcolor2"
                 android:textSize="14sp" />
 
         </LinearLayout>

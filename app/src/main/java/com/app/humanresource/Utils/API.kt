@@ -12,26 +12,32 @@ import com.app.humanresource.Models.EditProfile.UpdateUserProfile.UpdateUserInfo
 import com.app.humanresource.Models.EditProfile.UploadProfileIMageExample
 import com.app.humanresource.Models.ForogotPassword.ForgotPasswordExample
 import com.app.humanresource.Models.GetAllLocationModels.GetallLocationExample
+import com.app.humanresource.Models.GetAllUsersModel.GetAllUser
+import com.app.humanresource.Models.GetApplieduserDetail.GetAppliedUserDetail
 import com.app.humanresource.Models.GetApplyJobById.GetapplyJobByidExample
 import com.app.humanresource.Models.GetEmployerCreatedJob.GetEmployerCreatedJob
 import com.app.humanresource.Models.GetFavjobsModel.GetFavjobsExamples
 import com.app.humanresource.Models.GetJobApplicants.GetJobApplicants
 import com.app.humanresource.Models.GetJobById.GetJobByIdExample
 import com.app.humanresource.Models.GetJobsModels.GetJobsExample
+import com.app.humanresource.Models.GetOldChatsModel.GetOldChats
 import com.app.humanresource.Models.GetPopularjobsModels.PopularJobsExample
 import com.app.humanresource.Models.GetallCategoryExample.GetallCategoryExample
 import com.app.humanresource.Models.Login.LoginExample
 import com.app.humanresource.Models.Otp.OtpExample
 import com.app.humanresource.Models.Profile.ProfileExample
 import com.app.humanresource.Models.RecentPostModels.RecentPostsExample
+import com.app.humanresource.Models.RemoveJobsFromWishlist.RemoveJobsFromFav
 import com.app.humanresource.Models.SearchModels.SearchExamples
 import com.app.humanresource.Models.SignUp.SignUpExample
+import com.app.humanresource.Models.SocialLogin.GoogleSignInModel
 import com.app.humanresource.Models.UpadateuserDataModels.UpdateUserExample
 import com.app.humanresource.Models.getapplyjobsbyidmodels.GetApplyJobsByIdExamples
 import com.google.gson.JsonObject
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import retrofit2.Call
+import retrofit2.Callback
 import retrofit2.http.*
 
 interface API {
@@ -175,5 +181,19 @@ interface API {
     //getjobapplicants__________________________________________________________________________________________________________________________________
     @GET("apply/listByJobId/{id}")
     fun getjobapplicants(@Path("id")jobid:String):Call<GetJobApplicants>
-
+    //getapplieduserdetail______________________________________________________________________________________________________________________
+    @GET("apply/listByapplyJobIdAnduserId/{userId}/{applyId}")
+    fun getapplieduserDetail(@Path("userId")userId:String,@Path("applyId")applyId:String):Call<GetAppliedUserDetail>
+    //removewishlistjob__________________________________________________________________________________________________________________
+    @DELETE("wishlist/delete/{id}")
+    fun removeWishListJobs(@Path("id")wishlistid:String):Call<RemoveJobsFromFav>
+    //socialogin_______________________________________________________________________________________________________________________________
+    @POST("users/socialLogin")
+    fun sociallogin(@Body jsonObject: JsonObject?):Call<GoogleSignInModel>
+    //getoldchats___________________________________________________________________________________________________________________________
+    @GET("messages/getOldChat")
+    fun getOldChats(@Query("room_id")room_id:String,@Query("pageNo")pageNo:Int,@Query("pageSize")pageSize:Int):Call<GetOldChats>
+    //getallusers_____________________________________________________________________________________________________________________________
+    @GET( "users/getAllUsers")
+    fun getallUsers(@Header("x-access-token")token:String):Call<GetAllUser>
 }

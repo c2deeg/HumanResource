@@ -58,7 +58,6 @@
                             android:layout_marginTop="20dp"
                             android:fontFamily="@font/sfprodisplaybold"
                             android:gravity="center"
-                            android:text="Adom shafi"
                             android:textColor="@color/appgoldencolor"
                             android:textSize="18sp" />
 
@@ -69,7 +68,6 @@
                             android:layout_gravity="center"
                             android:fontFamily="@font/sfpromedium"
                             android:gravity="center"
-                            android:text="Employee"
                             android:textColor="@color/lightgray"
                             android:textSize="18sp" />
 
@@ -113,7 +111,6 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:fontFamily="@font/sfprodisplaybold"
-                                        android:text="+6106710972971"
                                         android:textSize="12sp" />
                                 </LinearLayout>
 
@@ -151,7 +148,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:fontFamily="@font/sfprodisplaybold"
-                                        android:text="adom@gmail.com" />
+                                        android:text="" />
                                 </LinearLayout>
 
                             </LinearLayout>
@@ -255,6 +252,32 @@
                         android:layout_weight="0.9"
                         android:fontFamily="@font/sfprodisplaybold"
                         android:text="My Applications"
+                        android:textColor="@color/white"
+                        android:textSize="18sp" />
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.1"
+                        android:src="@drawable/forwardarrow" />
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/linearwishlist"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginRight="10dp"
+                    android:orientation="horizontal"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:id="@+id/tv_wishlist"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.9"
+                        android:fontFamily="@font/sfprodisplaybold"
+                        android:text="My Wishlist"
                         android:textColor="@color/white"
                         android:textSize="18sp" />
 

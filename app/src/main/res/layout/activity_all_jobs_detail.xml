@@ -47,6 +47,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"
         android:layout_marginRight="20dp"
+        android:visibility="gone"
         android:orientation="horizontal"
         android:weightSum="1">
 
@@ -80,7 +81,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:fontFamily="@font/sfprodisplaybold"
-            android:text="Popular Jobs"
+            android:text=" Jobs"
             android:textColor="@color/white"
             android:textSize="23sp" />
 

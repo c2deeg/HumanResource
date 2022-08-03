@@ -7,13 +7,9 @@
     android:background="@color/black"
     tools:context=".Activities.SplashActivity.SplashActivity">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:text="Splash Screen"
-        android:gravity="center"
-        android:textSize="22dp"
-        android:textColor="@color/white"/>
+  <ImageView
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:src="@drawable/appicon"/>
 
 </LinearLayout>

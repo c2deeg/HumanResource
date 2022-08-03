@@ -150,7 +150,7 @@
                         android:padding="15dp"
                         android:singleLine="true"
                         android:text="Adom@gmail.com"
-                        android:textColor="@color/white"
+                        android:textColor="@color/hintscolor"
                         android:textColorHint="#DED7D7"
                         android:textSize="14sp" />
 

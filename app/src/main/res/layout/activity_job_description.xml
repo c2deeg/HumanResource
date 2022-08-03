@@ -122,7 +122,6 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="0.4"
-                        android:text="dsdsadsa"
                         android:background="@drawable/stroke_roundcorner"
                         android:fontFamily="@font/sfpromedium"
                         android:gravity="center"
@@ -130,7 +129,7 @@
                         android:padding="10dp"
                         android:singleLine="true"
                         android:textColor="@color/white"
-                        android:textColorHint="#DADADA"
+                        android:textColorHint="#9F9C9C"
                         android:textSize="18sp" />
 
                     <EditText
@@ -143,11 +142,10 @@
                         android:fontFamily="@font/sfpromedium"
                         android:gravity="center"
                         android:hint="Shafi"
-                        android:text="dsdsadsa"
                         android:padding="10dp"
                         android:singleLine="true"
                         android:textColor="@color/white"
-                        android:textColorHint="#DADADA"
+                        android:textColorHint="#9F9C9C"
                         android:textSize="18sp" />
                 </LinearLayout>
 
@@ -173,12 +171,11 @@
                         android:background="@drawable/stroke_roundcorner"
                         android:drawablePadding="20dp"
                         android:hint="hello@gmail.com"
-                        android:text="hello@gmail.com"
                         android:inputType="textEmailAddress"
                         android:padding="15dp"
                         android:singleLine="true"
                         android:textColor="@color/white"
-                        android:textColorHint="#DED7D7"
+                        android:textColorHint="#9F9C9C"
                         android:textSize="14sp" />
                     <TextView
                         android:layout_width="match_parent"
@@ -226,10 +223,9 @@
                         android:drawablePadding="20dp"
                         android:inputType="textEmailAddress"
                         android:padding="15dp"
-                        android:text="dsdsadsa"
                         android:singleLine="true"
                         android:textColor="@color/white"
-                        android:textColorHint="#DED7D7"
+                        android:textColorHint="#9F9C9C"
                         android:textSize="14sp" />
 
                     <TextView
@@ -252,9 +248,8 @@
                         android:inputType="textEmailAddress"
                         android:padding="15dp"
                         android:singleLine="true"
-                        android:text="dsdsadsa"
                         android:textColor="@color/white"
-                        android:textColorHint="#DED7D7"
+                        android:textColorHint="#9F9C9C"
                         android:textSize="14sp" />
 
                     <TextView

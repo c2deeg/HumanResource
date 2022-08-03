@@ -126,12 +126,11 @@ class EditProfileActivity : AppCompatActivity(), View.OnClickListener, EditProfi
         et_contact?.setText(data?.phoneNumber)
         if (data?.image !== null) {
             Glide.with(this)
-                .load(data.image)
+                .load(data.image).placeholder(R.drawable.usericons2)
                 .into(img_profile!!)
         } else {
-            img_profile?.setImageResource(R.drawable.ic_launcher_background)
+            img_profile?.setImageResource(R.drawable.usericons)
         }
-
     }
 
 }

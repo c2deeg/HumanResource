@@ -4,6 +4,9 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Human_Resource.iml" filepath="$PROJECT_DIR$/.idea/modules/Human_Resource.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Human_Resource.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Human_Resource.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Human_Resource.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Human_Resource.app.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Human_Resource.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Human_Resource.app.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Human_Resource.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Human_Resource.app.unitTest.iml" />
     </modules>
   </component>
 </project>

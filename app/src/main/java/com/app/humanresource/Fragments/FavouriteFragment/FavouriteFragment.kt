@@ -6,23 +6,28 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.Toast
 import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.airbnb.lottie.LottieAnimationView
 import com.app.humanresource.Adapter.FavouritesRecyclerAdapter
 import com.app.humanresource.Fragments.FavouriteFragment.Presenter.FavouritePresenter
 import com.app.humanresource.Fragments.FavouriteFragment.View.FavouriteView
+import com.app.humanresource.Fragments.ProfileFragment.ProfileFragment
 import com.app.humanresource.Models.GetFavjobsModel.GetFavjobsDatum
 import com.app.humanresource.R
 import com.app.humanresource.Utils.Utils
+import com.app.humanresource.interfaces.RemoveFromFav
 
-class FavouriteFragment : Fragment(), FavouriteView {
-    private lateinit var listdata: List<GetFavjobsDatum>
+class FavouriteFragment : Fragment(), FavouriteView,RemoveFromFav, View.OnClickListener {
+    private var listdata: List<GetFavjobsDatum> = ArrayList()
     var activity: Activity? = null
     var fav_recyclerview: RecyclerView? = null
     var favouritePresenter: FavouritePresenter? = null
     var animation_view: LottieAnimationView? = null
     var favouritesRecyclerAdapter: FavouritesRecyclerAdapter? = null
+    var img_back: ImageView? = null
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -33,16 +38,10 @@ class FavouriteFragment : Fragment(), FavouriteView {
         activity = getActivity()
         init(view)
         listeners(view)
-        favouritePresenter =
-            FavouritePresenter(activity as FragmentActivity, this, fav_recyclerview)
-        favouritePresenter?.getfavjobsByid()
-        listdata = ArrayList<GetFavjobsDatum>()
-        if (listdata.isEmpty()){
-            animation_view?.visibility = View.VISIBLE
-        }else{
-            animation_view?.visibility = View.GONE
-        }
-
+//        favouritePresenter =
+//            FavouritePresenter(activity as FragmentActivity, this, fav_recyclerview,this)
+//        favouritePresenter?.getfavjobsByid()
+//        listdata = ArrayList<GetFavjobsDatum>()
 
         return view
     }
@@ -51,9 +50,11 @@ class FavouriteFragment : Fragment(), FavouriteView {
     private fun init(view: View?) {
         fav_recyclerview = view?.findViewById(R.id.fav_recyclerview)
         animation_view = view?.findViewById(R.id.animation_view)
+        img_back = view?.findViewById(R.id.img_back)
     }
 
     private fun listeners(view: View?) {
+        img_back?.setOnClickListener(this)
     }
 
     override fun showMessage(activity: Activity?, msg: String?) {
@@ -70,6 +71,31 @@ class FavouriteFragment : Fragment(), FavouriteView {
 
     override fun setData(activity: FragmentActivity, data: List<GetFavjobsDatum>) {
         this.listdata = data
+        if (listdata.isEmpty()) {
+            animation_view?.visibility = View.VISIBLE
+        } else {
+            animation_view?.visibility = View.GONE
+        }
+
+    }
+
+    override fun onItemClick2(
+        data: MutableList<GetFavjobsDatum>,
+        postion: Int,
+        imgRemovefav: ImageView
+    ) {
+
+       favouritePresenter?.removejobsfromWishlist(data.get(postion).id)
+        favouritesRecyclerAdapter?.notifyDataSetChanged()
+        Utils.homeActivitychangeFragment(requireContext(), FavouriteFragment())
+
+
+    }
+
+    override fun onClick(p0: View?) {
+        if (p0==img_back){
+         Utils.homeActivitychangeFragment2(activity as FragmentActivity,ProfileFragment())
+        }
     }
 
 

@@ -136,7 +136,6 @@ class HomeFragment : Fragment(), View.OnClickListener, AdapterView.OnItemSelecte
             intent.putExtra("role", "recent")
             startActivity(intent)
         } else if (p0 == img_filter) {
-            Toast.makeText(requireContext(), "vvk", Toast.LENGTH_SHORT).show()
             showBottomSheetDialog(view)
 
         } else if (p0 == tv_showalltypes) {
@@ -190,7 +189,6 @@ class HomeFragment : Fragment(), View.OnClickListener, AdapterView.OnItemSelecte
                 tv_fulltime?.setTextColor(Color.BLACK)
                 tv_fulltime?.setBackgroundDrawable(resources.getDrawable(R.drawable.appgoldenbackground))
                 var fulltime: String = tv_fulltime?.text.toString()
-                Toast.makeText(activity, fulltime, Toast.LENGTH_SHORT).show()
             } else {
                 tv_fulltime?.setTextColor(Color.WHITE)
                 tv_fulltime?.setBackgroundDrawable(resources.getDrawable(R.drawable.stroke_roundcorner))
@@ -284,13 +282,10 @@ class HomeFragment : Fragment(), View.OnClickListener, AdapterView.OnItemSelecte
         } else if (p0 == spinner_location) {
             locationtext = locationarraylist[p2]
 
-            Toast.makeText(activity, locationtext, Toast.LENGTH_SHORT).show()
         } else if (p0 == spinner_salary) {
             salarytext = list_of_items[p2]
-            Toast.makeText(activity, salarytext, Toast.LENGTH_SHORT).show()
 
         }
-        Toast.makeText(activity, categoryid, Toast.LENGTH_SHORT).show()
 
         btn_apllyfilter?.setOnClickListener {
             var intent = Intent(activity, SearchResultActivity::class.java)

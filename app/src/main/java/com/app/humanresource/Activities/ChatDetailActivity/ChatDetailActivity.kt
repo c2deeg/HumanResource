@@ -8,15 +8,20 @@ import android.util.Log
 import android.view.View
 import android.widget.EditText
 import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.app.humanresource.Activities.ChatDetailActivity.Presenter.ChatDetailPresenter
+import com.app.humanresource.Activities.ChatDetailActivity.View.ChatDetailView
 import com.app.humanresource.Adapter.ChatAdapterRecyclerview
+import com.app.humanresource.Models.GetOldChatsModel.GetOldChatsItem
 import com.app.humanresource.R
+import com.app.humanresource.Utils.CSPreferences
 import com.app.humanresource.Utils.ChatApplication.ChatApplication
 import com.app.humanresource.Utils.ChatApplication.Messages
-import com.app.humanresource.databinding.ActivityLoginBinding
+import com.app.humanresource.Utils.Utils
 import com.github.nkzawa.emitter.Emitter
 import com.github.nkzawa.socketio.client.Socket
 import org.json.JSONException
@@ -24,7 +29,7 @@ import org.json.JSONObject
 import java.text.SimpleDateFormat
 import java.util.*
 
-class ChatDetailActivity : AppCompatActivity(), View.OnClickListener {
+class ChatDetailActivity : AppCompatActivity(), View.OnClickListener, ChatDetailView {
     var activity: Activity? = null
     var img_back: ImageView? = null
     var et_msg: EditText? = null
@@ -33,18 +38,23 @@ class ChatDetailActivity : AppCompatActivity(), View.OnClickListener {
     var chatrecyclerview: RecyclerView? = null
     var messageList: ArrayList<Messages> = ArrayList()
     var chatApplication: ChatApplication? = null
-    var binding:ActivityLoginBinding?=null
+    var msgTo :String?=null
+    var username: String? = null
+    var chatDetailPresenter: ChatDetailPresenter? = null
+    var tv_username: TextView? = null
+
 
 
     //    var socket:Socket?=null
     var mSocket: com.github.nkzawa.socketio.client.Socket? = null
-    private val toUser: String? = null
+    private var toUser: String? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         messageList = ArrayList()
         val app = ChatApplication()
+
 
         //mSocket = app.getmSocket();
 //        helper = PreferenceHelper.getInstance(getActivity());
@@ -73,10 +83,16 @@ class ChatDetailActivity : AppCompatActivity(), View.OnClickListener {
         activity = this
         init()
         listeners()
+        chatDetailPresenter = ChatDetailPresenter(activity as ChatDetailActivity, this, messageList)
+        msgTo = intent.getStringExtra("username").toString()
+        tv_username?.text = msgTo
+
+        var username = CSPreferences.readString(activity as ChatDetailActivity, Utils.USERNAME)
         chatAdapterRecyclerview = ChatAdapterRecyclerview(messageList)
         chatrecyclerview!!.layoutManager =
             LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
         chatrecyclerview?.adapter = chatAdapterRecyclerview
+
     }
 
     private fun init() {
@@ -84,7 +100,7 @@ class ChatDetailActivity : AppCompatActivity(), View.OnClickListener {
         et_msg = findViewById(R.id.et_msg)
         img_messagesend = findViewById(R.id.img_messagesend)
         chatrecyclerview = findViewById(R.id.chatrecyclerview)
-
+        tv_username = findViewById(R.id.tv_username)
     }
 
 
@@ -116,16 +132,19 @@ class ChatDetailActivity : AppCompatActivity(), View.OnClickListener {
         et_msg?.setText("")
         val calendar = Calendar.getInstance()
         //        SimpleDateFormat mdformat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
-        val mdformat = SimpleDateFormat("dd/MM/yyyy hh.mm aa")
+//        val mdformat = SimpleDateFormat("dd/MM/yyyy hh.mm aa")
+        val mdformat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
         val strDate = mdformat.format(calendar.time)
-        Log.d(ContentValues.TAG, "attemptSenddate$strDate")
+//        Log.d(ContentValues.TAG, "attemptSenddate$strDate")
+        Log.d("checkjaggasirdate", "attemptSenddate$strDate")
 
         // String date = "2021-02-16T15:24:44.000Z";
         val jsonObject = JSONObject()
         try {
             jsonObject.put("msg", message)
-//            jsonObject.put("sender", toUser)
+            jsonObject.put("msgTo", msgTo)
             jsonObject.put("date", strDate)
+//            jsonObject.put("date", "1657258541457")
         } catch (e: JSONException) {
             e.printStackTrace()
         }
@@ -163,9 +182,12 @@ class ChatDetailActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
+
     private val onGettingRoomId = Emitter.Listener {
         activity!!.runOnUiThread {
-            //  roomId = args[0].toString();
+            var roomId = it[0].toString();
+            Log.d(" checkroomid", roomId)
+            chatDetailPresenter?.getOldchat(roomId)
             //                    if (!roomId.isEmpty()) {
             //                        //  getOldChats(roomId);
             //                    }
@@ -182,20 +204,32 @@ class ChatDetailActivity : AppCompatActivity(), View.OnClickListener {
                         // Here adapter.getItemCount()== child count
                     }
                     val jsonObject = args[0] as JSONObject
-                    if (jsonObject.has("msgFrom") && jsonObject.optString("msgFrom")
-                            .equals(toUser, ignoreCase = true)
-                    ) {
+
+//                    if (jsonObject.has("msgFrom") && jsonObject.optString("msgFrom")
+//                            .equals(toUser, ignoreCase = true)
+                    var msgFrom = jsonObject.getString("msgFrom")
+                    if (msgFrom != username) {
                         val time: String
                         val message: String
                         try {
                             time = jsonObject.getString("date")
                             message = jsonObject.getString("msg")
+                            Toast.makeText(
+                                activity,
+                                jsonObject.getString("msgFrom"),
+                                Toast.LENGTH_SHORT
+                            ).show()
+
                             Log.d(ContentValues.TAG, "$message   received msg")
+                            Log.d("Checkrecivedmsg", "$message   received msg")
                         } catch (e: JSONException) {
                             return@Runnable
                         }
                         addMessage(time, message, Messages.TYPE_MESSAGE_REMOTE)
+                    } else {
+                        Log.d("error", "Error")
                     }
+//
                 })
             }
         }
@@ -247,31 +281,58 @@ class ChatDetailActivity : AppCompatActivity(), View.OnClickListener {
             mSocket!!.connect()
             Log.d(ContentValues.TAG, "onStart: " + mSocket!!.connect())
         }
-        mSocket!!.emit("set-user-data", "userId")
+        mSocket!!.emit("set-user-data", username)
     }
 
     override fun onResume() {
         super.onResume()
         mSocket!!.connect()
-        var userId:String?=null
+        username = CSPreferences.readString(activity as ChatDetailActivity, Utils.USERNAME)
 //        username = CSPreferences.readString(activity, Utils.USERNAME)
 //        userId = CSPreferences.readString(activity, Utils.USERID)
-        //        toUser = "61d536de8d6ba67d290ed201";
 
 //        toUser =  PreferenceHelper.getInstance(activity).getfriendname();
-        val currentRoom: String = userId + "-" + toUser
-        val reverseRoom = "$toUser-$userId"
-        Log.d(ContentValues.TAG, "current room " + currentRoom + "reverse room " + reverseRoom)
+//        val currentRoom: String = username + "-" + toUser
+////        val currentRoom: String = username + "-" + "employee"
+//        val reverseRoom = "$toUser-$username"
+//        val reverseRoom = "employee" + "-" + username
+//        Log.d("chchhchc",currentRoom)
+//        Log.d(ContentValues.TAG, "current room " + currentRoom + "reverse room " + reverseRoom)
         val jsonObject = JSONObject()
         try {
-            jsonObject.put("covsersatioFrom", userId)
-            jsonObject.put("covsersatioTo", toUser)
+            jsonObject.put("name1", username + "-" + msgTo)
+            jsonObject.put("name2", msgTo + "-" + username)
         } catch (e: JSONException) {
             e.printStackTrace()
         }
         mSocket!!.emit("set-room", jsonObject)
-        mSocket!!.emit("set-user-data", userId)
+        mSocket!!.emit("set-user-data", username)
+//        mSocket!!.on("set-room",onGettingRoomId)
+
+    }
+
+    override fun showMessage(activity: Activity?, msg: String?) {
+
+    }
+
+    override fun showDialog(activity: Activity?) {
+    }
+
+    override fun hideDialog() {
+    }
+
+    override fun setData(activity: ChatDetailActivity, items: List<GetOldChatsItem>) {
+        for (i in 0..items.size-1) {
+            addMessage(
+                items.get(i).createdOn,
+                items.get(i).msg,
+                Messages.TYPE_MESSAGE
+            )
+
+            Toast.makeText(activity, items.get(0).createdOn, Toast.LENGTH_SHORT).show()
+//                    }
+        }
     }
 
 
-}
+    }

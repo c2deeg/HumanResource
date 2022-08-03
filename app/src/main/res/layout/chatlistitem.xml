@@ -22,7 +22,7 @@
             android:id="@+id/userimage"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:src="@drawable/putin" />
+            android:src="@drawable/construction" />
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -48,6 +48,7 @@
                     android:layout_height="wrap_content"
                     android:text="2.40pm"
                     android:layout_weight="0.2"
+                    android:visibility="invisible"
                     android:textColor="@color/lightgray"
                     android:textSize="12sp"/>
             </LinearLayout>
@@ -56,6 +57,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Hello adom where are you?we are waiting at your home"
+                android:visibility="invisible"
                 android:singleLine="true"
                 android:textColor="@color/lightgray"
                 android:textSize="16sp"/>

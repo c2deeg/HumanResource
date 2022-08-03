@@ -59,6 +59,7 @@
                             android:background="@drawable/smalllroundcorner"
                             android:padding="5dp"
                             android:textSize="14sp"
+                            android:visibility="gone"
                             android:fontFamily="@font/sfprodisplaybold"
                             android:textColor="@color/red"
                             android:gravity="end"/>

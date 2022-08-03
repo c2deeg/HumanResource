@@ -11,7 +11,7 @@
         android:id="@+id/rlMessage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/cornor_chat"
+        android:background="@drawable/cornor_chat2"
         android:orientation="horizontal"
         android:padding="6dp">
 

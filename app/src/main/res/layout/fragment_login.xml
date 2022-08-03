@@ -10,7 +10,8 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -40,6 +41,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:text="Fill your details or continue \nwith social media"
+                    android:visibility="gone"
                     android:textColor="@color/white"
                     android:textSize="18sp" />
 
@@ -49,15 +51,19 @@
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="20dp"
                     android:layout_marginRight="20dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
                     android:orientation="horizontal"
                     android:weightSum="1">
 
                     <LinearLayout
+                        android:id="@+id/lin_googlesignin"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginRight="10dp"
                         android:layout_weight="0.5"
+                        android:visibility="gone"
                         android:background="@drawable/buttonbackground"
                         android:gravity="center"
                         android:padding="10dp">
@@ -85,6 +91,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="0.5"
+                        android:visibility="gone"
                         android:background="@drawable/buttonbackground"
                         android:gravity="center"
                         android:padding="10dp">
@@ -114,7 +121,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
-                    android:layout_marginTop="60dp"
+                    android:layout_marginTop="30dp"
                     android:text="Account Login"
                     android:textColor="@color/white"
                     android:textSize="24sp" />
@@ -130,7 +137,6 @@
                     android:background="@drawable/roundcorner"
                     android:drawableLeft="@drawable/email"
                     android:drawablePadding="20dp"
-                    android:text="asdf@gmail.com"
                     android:hint="johnde@gmail.com"
                     android:inputType="textEmailAddress"
                     android:padding="15dp"
@@ -163,7 +169,6 @@
                         android:drawablePadding="20dp"
                         android:hint="*********"
                         android:inputType="textPassword"
-                        android:text="12345"
                         android:singleLine="true"
                         android:textColor="@color/white"
                         android:textColorHint="#DED7D7"
@@ -205,6 +210,24 @@
                     android:text="LOG IN"
                     android:textColor="@color/black"
                     android:textSize="16sp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="5dp"
+                    android:text="or login with"
+                    android:textColor="@color/white" />
+
+                <ImageView
+                    android:id="@+id/img_googlesignin"
+
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/googles"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"

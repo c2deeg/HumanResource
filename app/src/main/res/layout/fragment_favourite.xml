@@ -5,16 +5,34 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
+    android:background="@color/black"
     tools:context=".Fragments.FavouriteFragment.FavouriteFragment">
-<TextView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:textColor="@color/white"
-    android:text="Favourites"
-    android:textSize="30sp"
-    android:layout_marginLeft="20dp"
-    android:layout_marginTop="10dp"
-    android:fontFamily="@font/sfprodisplaybold"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+        <ImageView
+            android:id="@+id/img_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_gravity="center"
+            android:src="@drawable/arrowback"
+            app:tint="@color/white" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:text="Favourites"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textSize="30sp"
+            android:fontFamily="@font/sfprodisplaybold"/>
+
+    </LinearLayout>
 
 <RelativeLayout
     android:layout_width="match_parent"

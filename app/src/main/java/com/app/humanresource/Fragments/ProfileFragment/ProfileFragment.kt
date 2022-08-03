@@ -10,9 +10,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import com.app.humanresource.Activities.ChangePasswordActivity.ResetChangePasswordActivity
 import com.app.humanresource.Activities.EditProfileActivity.EditProfileActivity
+import com.app.humanresource.Activities.FavouritesActivity.FavouritesActivity
 import com.app.humanresource.Activities.MyApplicationsActivity.MyApplicationsActivity
 import com.app.humanresource.Activities.MyJobsActivity.MyJobsActivity
-import com.app.humanresource.Activities.MyapplicantsActivity.MyapplicantsActivity
 import com.app.humanresource.Activities.WelcomeActivity.WelcomeActivity
 import com.app.humanresource.Fragments.ProfileFragment.Presenter.ProfilePresenter
 import com.app.humanresource.Fragments.ProfileFragment.View.ProfileView
@@ -39,6 +39,10 @@ class ProfileFragment : Fragment(), View.OnClickListener, ProfileView {
     var profilePresenter: ProfilePresenter? = null
     var profile_image: CircleImageView? = null
     var img_profileimage: ImageView? = null
+    var tv_wishlist: TextView? = null
+    var linearwishlist: LinearLayout? = null
+    var profileFragment:ProfileFragment?=null
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -55,8 +59,11 @@ class ProfileFragment : Fragment(), View.OnClickListener, ProfileView {
         role = requireArguments().getString("role")!!
         if (role.equals("employer")) {
             tv_myapplications?.text = "My Jobs"
+            linearwishlist?.visibility = View.GONE
+
         } else {
             tv_myapplications?.text = "My Applications"
+            linearwishlist?.visibility = View.VISIBLE
         }
         return view
     }
@@ -71,6 +78,8 @@ class ProfileFragment : Fragment(), View.OnClickListener, ProfileView {
         tv_phonenumber = view?.findViewById(R.id.tv_phonenumber)
         tv_roletype = view?.findViewById(R.id.tv_roletype)
         img_profileimage = view?.findViewById(R.id.img_profileimage)
+        tv_wishlist = view?.findViewById(R.id.tv_wishlist)
+        linearwishlist = view?.findViewById(R.id.linearwishlist)
 
     }
 
@@ -80,6 +89,7 @@ class ProfileFragment : Fragment(), View.OnClickListener, ProfileView {
         lin_changepassword?.setOnClickListener(this)
         tv_myapplications?.setOnClickListener(this)
         tv_phonenumber?.setOnClickListener(this)
+        linearwishlist?.setOnClickListener(this)
 
     }
 
@@ -100,6 +110,15 @@ class ProfileFragment : Fragment(), View.OnClickListener, ProfileView {
                 var intent = Intent(activity, MyApplicationsActivity::class.java)
                 startActivity(intent)
             }
+        }else if(p0==linearwishlist){
+            var intent = Intent(activity, FavouritesActivity::class.java)
+            startActivity(intent)
+//            val fragment: Fragment = FavouriteFragment()
+//            val fragmentManager: FragmentManager = requireActivity().supportFragmentManager
+//            val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
+//            fragmentTransaction.replace(android.R.id.content, fragment)
+//            fragmentTransaction.addToBackStack(null)
+//            fragmentTransaction.commit()
         }
     }
 

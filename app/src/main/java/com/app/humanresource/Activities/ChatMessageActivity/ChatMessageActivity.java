@@ -9,6 +9,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -31,7 +32,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-public class ChatMessageActivity extends AppCompatActivity {
+public class ChatMessageActivity extends AppCompatActivity implements View.OnClickListener {
     private Activity activity;
     private ImageButton img_back;
     private TextView txt_name;
@@ -50,6 +51,8 @@ public class ChatMessageActivity extends AppCompatActivity {
     private String toUser;
     private List<Messages> messageList;
     private Socket mSocket;
+    private ImageView img_messagesend;
+    private String msgTo = "rktest";
 //    private ChatDetailPresenter chatDetailPresenter;
 
     @Override
@@ -77,12 +80,21 @@ public class ChatMessageActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_chat_message);
         activity = this;
+        init();
+        listners();
 
 
     }
 
+    private void init() {
+        img_messagesend = findViewById(R.id.img_messagesend);
+        et_msg = findViewById(R.id.et_msg);
+        chatrecyclerview = findViewById(R.id.chatrecyclerview);
+    }
 
-
+    private void listners() {
+        img_messagesend.setOnClickListener(this);
+    }
 
 
     private void attemptSend() {
@@ -95,8 +107,8 @@ public class ChatMessageActivity extends AppCompatActivity {
         et_msg.setText("");
 
         Calendar calendar = Calendar.getInstance();
-//        SimpleDateFormat mdformat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
-        SimpleDateFormat mdformat = new SimpleDateFormat("dd/MM/yyyy hh.mm aa");
+        SimpleDateFormat mdformat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
+//        SimpleDateFormat mdformat = new SimpleDateFormat("dd/MM/yyyy hh.mm aa");
         String strDate = mdformat.format(calendar.getTime());
         Log.d(TAG, "attemptSenddate" + strDate);
 
@@ -105,7 +117,7 @@ public class ChatMessageActivity extends AppCompatActivity {
         JSONObject jsonObject = new JSONObject();
         try {
             jsonObject.put("msg", message);
-            jsonObject.put("sender", toUser);
+            jsonObject.put("msgTo", msgTo);
             jsonObject.put("date", strDate);
         } catch (JSONException e) {
             e.printStackTrace();
@@ -156,7 +168,8 @@ public class ChatMessageActivity extends AppCompatActivity {
             activity.runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    //  roomId = args[0].toString();
+                     String roomId = args[0].toString();
+                     Toast.makeText(activity,roomId,Toast.LENGTH_SHORT).show();
 //                    if (!roomId.isEmpty()) {
 //                        //  getOldChats(roomId);
 //                    }
@@ -211,7 +224,7 @@ public class ChatMessageActivity extends AppCompatActivity {
 
     private void addMessage(String time, String message, int type) {
         messageList.add(new Messages.Builder(type).time(time).message(message).build());
-        chatAdapterRecyclerview.notifyItemInserted(messageList.size() - 1);
+//        chatAdapterRecyclerview.notifyItemInserted(messageList.size() - 1);
 //        scrollToBottom();
 
     }
@@ -271,7 +284,6 @@ public class ChatMessageActivity extends AppCompatActivity {
     }
 
 
-
     @Override
     public void onResume() {
         super.onResume();
@@ -287,8 +299,8 @@ public class ChatMessageActivity extends AppCompatActivity {
 
         JSONObject jsonObject = new JSONObject();
         try {
-            jsonObject.put("covsersatioFrom", userId);
-            jsonObject.put("covsersatioTo", toUser);
+            jsonObject.put("name1", "asa");
+            jsonObject.put("name2", "rktest");
 
 
         } catch (JSONException e) {
@@ -310,4 +322,11 @@ public class ChatMessageActivity extends AppCompatActivity {
         // mSocket.off("typing", onTyping);
     }
 
+    @Override
+    public void onClick(View view) {
+        if (view == img_messagesend) {
+            attemptSend();
+
+        }
+    }
 }

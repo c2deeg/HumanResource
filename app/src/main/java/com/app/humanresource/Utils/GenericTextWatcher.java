@@ -22,27 +22,27 @@ public class GenericTextWatcher implements TextWatcher {
         String text = editable.toString();
         switch (view.getId()) {
 
-//            case R.id.otpET1:
-//                if (text.length() == 1)
-//                    editText[1].requestFocus();
-//                break;
-//            case R.id.otpET2:
-//
-//                if (text.length() == 1)
-//                    editText[2].requestFocus();
-//                else if (text.length() == 0)
-//                    editText[0].requestFocus();
-//                break;
-//            case R.id.otpET3:
-//                if (text.length() == 1)
-//                    editText[3].requestFocus();
-//                else if (text.length() == 0)
-//                    editText[1].requestFocus();
-//                break;
-//            case R.id.otpET4:
-//                if (text.length() == 0)
-//                    editText[2].requestFocus();
-//                break;
+            case R.id.otpET1:
+                if (text.length() == 1)
+                    editText[1].requestFocus();
+                break;
+            case R.id.otpET2:
+
+                if (text.length() == 1)
+                    editText[2].requestFocus();
+                else if (text.length() == 0)
+                    editText[0].requestFocus();
+                break;
+            case R.id.otpET3:
+                if (text.length() == 1)
+                    editText[3].requestFocus();
+                else if (text.length() == 0)
+                    editText[1].requestFocus();
+                break;
+            case R.id.otpET4:
+                if (text.length() == 0)
+                    editText[2].requestFocus();
+                break;
         }
     }
 

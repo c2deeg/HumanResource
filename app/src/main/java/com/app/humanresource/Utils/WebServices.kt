@@ -12,20 +12,25 @@ import com.app.humanresource.Models.ForogtoChangePasword.ChangePasswordExample
 import com.app.humanresource.Models.EditProfile.UploadProfileIMageExample
 import com.app.humanresource.Models.ForogotPassword.ForgotPasswordExample
 import com.app.humanresource.Models.GetAllLocationModels.GetallLocationExample
+import com.app.humanresource.Models.GetAllUsersModel.GetAllUser
+import com.app.humanresource.Models.GetApplieduserDetail.GetAppliedUserDetail
 import com.app.humanresource.Models.GetApplyJobById.GetapplyJobByidExample
 import com.app.humanresource.Models.GetEmployerCreatedJob.GetEmployerCreatedJob
 import com.app.humanresource.Models.GetFavjobsModel.GetFavjobsExamples
 import com.app.humanresource.Models.GetJobApplicants.GetJobApplicants
 import com.app.humanresource.Models.GetJobById.GetJobByIdExample
 import com.app.humanresource.Models.GetJobsModels.GetJobsExample
+import com.app.humanresource.Models.GetOldChatsModel.GetOldChats
 import com.app.humanresource.Models.GetPopularjobsModels.PopularJobsExample
 import com.app.humanresource.Models.GetallCategoryExample.GetallCategoryExample
 import com.app.humanresource.Models.Login.LoginExample
 import com.app.humanresource.Models.Otp.OtpExample
 import com.app.humanresource.Models.Profile.ProfileExample
 import com.app.humanresource.Models.RecentPostModels.RecentPostsExample
+import com.app.humanresource.Models.RemoveJobsFromWishlist.RemoveJobsFromFav
 import com.app.humanresource.Models.SearchModels.SearchExamples
 import com.app.humanresource.Models.SignUp.SignUpExample
+import com.app.humanresource.Models.SocialLogin.GoogleSignInModel
 import com.app.humanresource.Models.UpadateuserDataModels.UpdateUserExample
 import com.app.humanresource.Models.getapplyjobsbyidmodels.GetApplyJobsByIdExamples
 import com.google.gson.JsonObject
@@ -1191,17 +1196,16 @@ class WebServices {
             }
 
             override fun onFailure(call: Call<GetEmployerCreatedJob>, t: Throwable) {
-               getEmployerCreatedJobHandler.onError(t.message)
+                getEmployerCreatedJobHandler.onError(t.message)
             }
 
         })
     }
 
     //getjobApplicants________________________________________________________________________________________________________________________________________________________________
-
     fun getjobApplicants(
         jobid: String,
-      getJobApplicantsHandler: GetJobApplicantsHandler
+        getJobApplicantsHandler: GetJobApplicantsHandler
     ) {
         apiCreate()
         api.getjobapplicants(jobid).enqueue(object : Callback<GetJobApplicants> {
@@ -1209,9 +1213,9 @@ class WebServices {
                 call: Call<GetJobApplicants>,
                 response: Response<GetJobApplicants>
             ) {
-                if (response.code()==200){
+                if (response.code() == 200) {
                     getJobApplicantsHandler.onSuccess(response.body())
-                }else{
+                } else {
                     val responceData = SocketConnection.convertStreamToString(
                         response.errorBody()!!.byteStream()
                     )
@@ -1231,12 +1235,224 @@ class WebServices {
             }
 
             override fun onFailure(call: Call<GetJobApplicants>, t: Throwable) {
-               getJobApplicantsHandler.onError(t.message)
+                getJobApplicantsHandler.onError(t.message)
             }
 
         })
     }
 
+    //getapplieduserdetail____________________________________________________________________________________________________________________
+    fun getAppliedUserDetail(
+        userId: String,
+        applyId: String,
+        getAppliedUserDetailHandler: GetAppliedUserDetailHandler
+    ) {
+        apiCreate()
+        api.getapplieduserDetail(userId, applyId).enqueue(object : Callback<GetAppliedUserDetail> {
+            override fun onResponse(
+                call: Call<GetAppliedUserDetail>,
+                response: Response<GetAppliedUserDetail>
+            ) {
+                if (response.code() == 200) {
+                    getAppliedUserDetailHandler.onSuccess(response.body())
+                } else {
+                    val responceData = SocketConnection.convertStreamToString(
+                        response.errorBody()!!.byteStream()
+                    )
+                    try {
+                        val jsonObject = JSONObject(responceData)
+                        val message = jsonObject.optString("message")
+                        val error = jsonObject.optString("error")
+                        if (!message.equals("", ignoreCase = true)) {
+                            getAppliedUserDetailHandler.onError(message)
+                        } else {
+                            getAppliedUserDetailHandler.onError(error)
+                        }
+                    } catch (e: JSONException) {
+                        e.printStackTrace()
+                    }
+                }
+            }
+
+            override fun onFailure(call: Call<GetAppliedUserDetail>, t: Throwable) {
+                getAppliedUserDetailHandler.onError(t.message)
+            }
+
+        })
+
+    }
+
+    //removejobsfromwishlist
+    fun removejobsfromWishlist(
+        jobid: String,
+        removeJobsFromWishlistHandler: RemoveJobsFromWishlistHandler
+    ) {
+        apiCreate()
+        api.removeWishListJobs(jobid).enqueue(object : Callback<RemoveJobsFromFav> {
+            override fun onResponse(
+                call: Call<RemoveJobsFromFav>,
+                response: Response<RemoveJobsFromFav>
+            ) {
+                if (response.code() == 200) {
+                    removeJobsFromWishlistHandler.onSuccess(response.body())
+                } else {
+                    val responceData = SocketConnection.convertStreamToString(
+                        response.errorBody()!!.byteStream()
+                    )
+                    try {
+                        val jsonObject = JSONObject(responceData)
+                        val message = jsonObject.optString("message")
+                        val error = jsonObject.optString("error")
+                        if (!message.equals("", ignoreCase = true)) {
+                            removeJobsFromWishlistHandler.onError(message)
+                        } else {
+                            removeJobsFromWishlistHandler.onError(error)
+                        }
+                    } catch (e: JSONException) {
+                        e.printStackTrace()
+                    }
+                }
+            }
+
+            override fun onFailure(call: Call<RemoveJobsFromFav>, t: Throwable) {
+                removeJobsFromWishlistHandler.onError(t.message)
+            }
+        })
+    }
+    //googlesociallogin
+
+    fun socialLogin(
+        socialLinkId: String,
+        platform: String,
+        email: String,
+        userName: String,
+        phoneNumber: String,
+        socialLoginHandler: SocialLoginHandler
+    ) {
+        apiCreate()
+        val jsonObject = JsonObject()
+        jsonObject.addProperty("socialLinkId", socialLinkId)
+        jsonObject.addProperty("platform", platform)
+        jsonObject.addProperty("email", email)
+        jsonObject.addProperty("userName", userName)
+        jsonObject.addProperty("phoneNumber", phoneNumber)
+        api.sociallogin(jsonObject).enqueue(object : Callback<GoogleSignInModel> {
+            override fun onResponse(
+                call: Call<GoogleSignInModel>,
+                response: Response<GoogleSignInModel>
+            ) {
+                var acesstoken: String? = null
+                acesstoken = response.headers()["x-access-token"]
+                if (response.code() == 200) {
+                    socialLoginHandler.onSuccess(response.body(), acesstoken)
+
+                } else {
+
+                    val responceData = SocketConnection.convertStreamToString(
+                        response.errorBody()!!.byteStream()
+                    )
+                    try {
+                        val jsonObject = JSONObject(responceData)
+                        val message = jsonObject.optString("message")
+                        val error = jsonObject.optString("error")
+                        if (!message.equals("", ignoreCase = true)) {
+                            socialLoginHandler.onError(message)
+                        } else {
+                            socialLoginHandler.onError(error)
+                        }
+                    } catch (e: JSONException) {
+                        e.printStackTrace()
+                    }
+                }
+            }
+
+            override fun onFailure(call: Call<GoogleSignInModel>, t: Throwable) {
+                socialLoginHandler.onError(t.message)
+            }
+
+        })
+    }
+
+
+    //getoldChats________________________________________________________________________________________________________________________
+    fun getOldChats(
+        room_id: String,
+        pageNo: Int,
+        pageSize: Int,
+        getOldChatsHandler: GetOldChatsHandler
+    ) {
+        apiCreate()
+        api.getOldChats(room_id, pageNo, pageSize).enqueue(object : Callback<GetOldChats> {
+            override fun onResponse(call: Call<GetOldChats>, response: Response<GetOldChats>) {
+
+                if (response.code() == 200) {
+                    getOldChatsHandler.onSuccess(response.body())
+                } else {
+
+                    val responceData = SocketConnection.convertStreamToString(
+                        response.errorBody()!!.byteStream()
+                    )
+                    try {
+                        val jsonObject = JSONObject(responceData)
+                        val message = jsonObject.optString("message")
+                        val error = jsonObject.optString("error")
+                        if (!message.equals("", ignoreCase = true)) {
+                            getOldChatsHandler.onError(message)
+                        } else {
+                            getOldChatsHandler.onError(error)
+                        }
+                    } catch (e: JSONException) {
+                        e.printStackTrace()
+                    }
+                }
+
+            }
+
+            override fun onFailure(call: Call<GetOldChats>, t: Throwable) {
+                getOldChatsHandler.onError(t.message)
+            }
+
+
+        })
+    }
+
+    //getallusers___________________________________________________________________________________________________________________________________________
+    fun getallusers(token: String?,
+        getAllUsersHandler: GetAllUsersHandler
+
+    ) {
+        apiCreate()
+        api.getallUsers(token!!).enqueue(object : Callback<GetAllUser> {
+            override fun onResponse(call: Call<GetAllUser>, response: Response<GetAllUser>) {
+                if (response.code() == 200) {
+                    getAllUsersHandler.onSuccess(response.body())
+                } else {
+                    val responceData = SocketConnection.convertStreamToString(
+                        response.errorBody()!!.byteStream()
+                    )
+                    try {
+                        val jsonObject = JSONObject(responceData)
+                        val message = jsonObject.optString("message")
+                        val error = jsonObject.optString("error")
+                        if (!message.equals("", ignoreCase = true)) {
+                            getAllUsersHandler.onError(message)
+                        } else {
+                            getAllUsersHandler.onError(error)
+                        }
+                    } catch (e: JSONException) {
+                        e.printStackTrace()
+                    }
+                }
+            }
+
+            override fun onFailure(call: Call<GetAllUser>, t: Throwable) {
+                getAllUsersHandler.onError(t.message)
+
+            }
+
+
+        })
+    }
 
 
 }

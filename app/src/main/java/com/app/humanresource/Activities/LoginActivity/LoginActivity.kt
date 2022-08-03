@@ -6,14 +6,17 @@ import android.util.Log
 import android.widget.FrameLayout
 import androidx.appcompat.app.AppCompatActivity
 import com.app.humanresource.R
+import com.facebook.CallbackManager
 
 class LoginActivity : AppCompatActivity() {
+    private var callbackManager: CallbackManager?=null
     var login_container: FrameLayout? = null
     lateinit var role: String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
         inits()
+        callbackManager = CallbackManager.Factory.create();
 
         role = intent.getStringExtra("role").toString()
         Log.d("checking", role + "")
